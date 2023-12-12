@@ -8,8 +8,7 @@
 import * as React from "react";
 import { getOverrideProps } from "./utils";
 import LogoWithText from "./LogoWithText";
-import { Flex, Image, Text } from "@aws-amplify/ui-react";
-import MyIcon from "./MyIcon";
+import { Flex, Text } from "@aws-amplify/ui-react";
 export default function NavBarHeader(props) {
   const { overrides, ...rest } = props;
   return (
@@ -52,7 +51,7 @@ export default function NavBarHeader(props) {
         basis="0"
         position="relative"
         padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "Frame 32129767076")}
+        {...getOverrideProps(overrides, "Frame 321")}
       >
         <Text
           fontFamily="Inter"
@@ -72,115 +71,9 @@ export default function NavBarHeader(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="Dashboard"
-          {...getOverrideProps(overrides, "Dashboard")}
+          children="Add Pets"
+          {...getOverrideProps(overrides, "Add Pets")}
         ></Text>
-        <Text
-          fontFamily="Inter"
-          fontSize="16px"
-          fontWeight="400"
-          color="rgba(92,102,112,1)"
-          lineHeight="24px"
-          textAlign="left"
-          display="block"
-          direction="column"
-          justifyContent="unset"
-          width="unset"
-          height="unset"
-          gap="unset"
-          alignItems="unset"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children="Jobs"
-          {...getOverrideProps(overrides, "Jobs")}
-        ></Text>
-        <Text
-          fontFamily="Inter"
-          fontSize="16px"
-          fontWeight="400"
-          color="rgba(92,102,112,1)"
-          lineHeight="24px"
-          textAlign="left"
-          display="block"
-          direction="column"
-          justifyContent="unset"
-          width="unset"
-          height="unset"
-          gap="unset"
-          alignItems="unset"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children="Applicants"
-          {...getOverrideProps(overrides, "Applicants")}
-        ></Text>
-        <Text
-          fontFamily="Inter"
-          fontSize="16px"
-          fontWeight="400"
-          color="rgba(92,102,112,1)"
-          lineHeight="24px"
-          textAlign="left"
-          display="block"
-          direction="column"
-          justifyContent="unset"
-          width="unset"
-          height="unset"
-          gap="unset"
-          alignItems="unset"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children="Company"
-          {...getOverrideProps(overrides, "Company")}
-        ></Text>
-      </Flex>
-      <Flex
-        gap="32px"
-        direction="row"
-        width="unset"
-        height="unset"
-        justifyContent="flex-end"
-        alignItems="center"
-        grow="1"
-        shrink="1"
-        basis="0"
-        position="relative"
-        padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "Frame 32129767081")}
-      >
-        <MyIcon
-          width="24px"
-          height="24px"
-          display="block"
-          gap="unset"
-          alignItems="unset"
-          justifyContent="unset"
-          overflow="hidden"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          type="notification"
-          {...getOverrideProps(overrides, "MyIcon")}
-        ></MyIcon>
-        <Image
-          width="45px"
-          height="45px"
-          display="block"
-          gap="unset"
-          alignItems="unset"
-          justifyContent="unset"
-          shrink="0"
-          position="relative"
-          borderRadius="160px"
-          padding="0px 0px 0px 0px"
-          objectFit="cover"
-          {...getOverrideProps(overrides, "image")}
-        ></Image>
       </Flex>
     </Flex>
   );
