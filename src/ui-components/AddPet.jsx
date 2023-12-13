@@ -8,13 +8,13 @@
 import * as React from "react";
 import { useState } from "react";
 import { generateClient } from "aws-amplify/api";
-import { createPet } from "../graphql/mutations";
+import { createPet, updatePet } from "../graphql/mutations";
 import { getOverrideProps } from "./utils";
 import { Button, Flex, Image, Text, TextField } from "@aws-amplify/ui-react";
 import MyIcon from "./MyIcon";
 const client = generateClient();
 export default function AddPet(props) {
-  const { overrides, ...rest } = props;
+  const { prop, pet, overrides, ...rest } = props;
   const [
     textFieldTwoNineSevenSixSixNineTwoTwoValue,
     setTextFieldTwoNineSevenSixSixNineTwoTwoValue,
@@ -50,6 +50,22 @@ export default function AddPet(props) {
           about: textFieldThreeNineFiveSevenFiveFourNineValue,
           image: textFieldThreeNineFiveSevenFiveSixThreeValue,
           color: textFieldThreeNineFiveSevenFiveFiveSixValue,
+        },
+      },
+    });
+  };
+  const buttonThreeNineFiveEightFourThreeNineOnClick = async () => {
+    await client.graphql({
+      query: updatePet.replaceAll("__typename", ""),
+      variables: {
+        input: {
+          name: textFieldTwoNineSevenSixSixNineTwoTwoValue,
+          age: textFieldTwoNineSevenSixSixNineTwoThreeValue,
+          breed: textFieldTwoNineSevenSixSixNineTwoFourValue,
+          about: textFieldThreeNineFiveSevenFiveFourNineValue,
+          image: textFieldThreeNineFiveSevenFiveFiveSixValue,
+          color: textFieldThreeNineFiveSevenFiveFiveSixValue,
+          id: pet?.id,
         },
       },
     });
@@ -319,6 +335,9 @@ export default function AddPet(props) {
             isDisabled={false}
             variation="primary"
             children="Update"
+            onClick={() => {
+              buttonThreeNineFiveEightFourThreeNineOnClick();
+            }}
             {...getOverrideProps(overrides, "Button3958439")}
           ></Button>
         </Flex>

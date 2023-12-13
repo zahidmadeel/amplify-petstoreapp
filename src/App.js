@@ -32,29 +32,56 @@ function App() {
 
 
 
-  const formOverrides = {"MyIcon":{"onClick":() => setShowForm(false), "style":{cursor: "pointer"}}};
+  const formOverrides = 
+  {
+      "MyIcon":
+      {
+        "onClick":() => setShowForm(false),
+        "style":{cursor: "pointer"}
+      }, 
+      TextField29766922:{
+        // onChange: (e) => setName(e.target.value),
+        placeholder: name
+      },
+      TextField29766923:{
+        // onChange: (e) => setAge(e.target.value),
+        placeholder: age
+      },
+      TextField29766924:{
+        // onChange: (e) => setBreed(e.target.value),
+        placeholder: breed
+      },
+      TextField3957549:{
+        // onChange: (e) => setAbout(e.target.value),
+        placeholder: about   
+      },
+      TextField3957556: {
+        // onChange: (e) => setColor(e.target.value),
+        placeholder: color
+      },
+      TextField3957563: {
+        // onChange: (e) => setImage(e.target.value),
+        placeholder: image
+      },
+      image: {
+        src: updatePet == null? "https://images.unsplash.com/photo-1557053503-0c252e5c8093?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8ZmlzaHx8fHx8fDE2NTI3MzMxMTE&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080": updatePet.image      
+      },
+      Button3958439: {
+        isDisabled: updatePet == null? true: false
+      },
+      Button29766926: {
+        isDisabled: updatePet? true: false
+      },
+      Button29766925: {
+        onClick: () => {
+          setShowForm(false);
+          setUpdatePet(false);
+        }
+      }
+    };
   const detailOverrides = {"MyIcon":{"onClick":() => setshowDetails(false), "style":{cursor: "pointer"}}};
   const navOverrides = 
   {
-    TextField29766922:{
-      onChange: (e) => setName(e.target.value)
-    },
-    TextField29766923:{
-      onChange: (e) => setAge(e.target.value)
-    },
-    TextField29766924:{
-      onChange: (e) => setBreed(e.target.value)
-    },
-    TextField3957549:{
-      onChange: (e) => setAbout(e.target.value)    
-    },
-    TextField3957556: {
-      onChange: (e) => setColor(e.target.value)
-    },
-    TextField3957563: {
-      onChange: (e) => setImage(e.target.value)
-    },
-    
     "Add Pets":
     {
       onClick:  () => 
@@ -91,11 +118,16 @@ function App() {
               setPet(item);
             }
           },
-          Button3958439:{
+          Button39493891:{
             onClick: () => {
               if(!showForm) setShowForm(true);
               setUpdatePet(item);
-              setShowForm(!showForm);
+              setName(item.name);
+              setAge(item.age);
+              setBreed(item.breed);
+              setAbout(item.about);
+              setColor(item.color);
+              setImage(item.image);
             }
           }
         }
