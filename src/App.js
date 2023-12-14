@@ -15,7 +15,7 @@ import {
  import {
   PetDetails 
  } from './ui-components';
- 
+ import { withAuthenticator } from '@aws-amplify/ui-react';
  
 
 function App() {
@@ -82,6 +82,9 @@ function App() {
   const detailOverrides = {"MyIcon":{"onClick":() => setshowDetails(false), "style":{cursor: "pointer"}}};
   const navOverrides = 
   {
+    Button: {
+      onClick: () => {alert("Sign Out")}
+    },
     "Add Pets":
     {
       onClick:  () => 
@@ -140,4 +143,4 @@ function App() {
   );
 }
 
-export default App;
+export default withAuthenticator(App);

@@ -8,7 +8,7 @@
 import * as React from "react";
 import { getOverrideProps } from "./utils";
 import LogoWithText from "./LogoWithText";
-import { Flex, Text } from "@aws-amplify/ui-react";
+import { Button, Flex, Text } from "@aws-amplify/ui-react";
 export default function NavBarHeader(props) {
   const { overrides, ...rest } = props;
   return (
@@ -74,6 +74,18 @@ export default function NavBarHeader(props) {
           children="Add Pets"
           {...getOverrideProps(overrides, "Add Pets")}
         ></Text>
+        <Button
+          width="unset"
+          height="unset"
+          justifyContent="flex-end"
+          shrink="0"
+          backgroundColor="rgba(83,173,157,1)"
+          size="default"
+          isDisabled={false}
+          variation="default"
+          children="Signout"
+          {...getOverrideProps(overrides, "Button")}
+        ></Button>
       </Flex>
     </Flex>
   );
