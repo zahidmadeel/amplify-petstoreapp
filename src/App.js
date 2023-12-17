@@ -15,7 +15,8 @@ import {
  import {
   PetDetails 
  } from './ui-components';
- import { withAuthenticator } from '@aws-amplify/ui-react';
+ import { withAuthenticator, Authenticator } from '@aws-amplify/ui-react';
+import { signOut } from 'aws-amplify/auth';
  
 
 function App() {
@@ -83,7 +84,7 @@ function App() {
   const navOverrides = 
   {
     Button: {
-      onClick: () => {alert("Sign Out")}
+      onClick: () => signOut()
     },
     "Add Pets":
     {
@@ -96,7 +97,8 @@ function App() {
   };
   // const overrides = {"Breed":{"color":"blue"}};
   return (
-    
+    <Authenticator signUpAttributes={['email', 'name', 'profile']}>
+      {({ signOut, user }) => (
     <div className="App">
       <NavBarHeader overrides={navOverrides}/>
       <header className="App-header">
@@ -140,7 +142,9 @@ function App() {
       </header>
       <MarketingFooter />
     </div>
+    )}
+    </Authenticator>
   );
 }
 
-export default withAuthenticator(App);
+export default App;
